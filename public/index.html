@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
     <title>Registration Form</title>
@@ -13,5 +13,56 @@
         Phone: <input type="text" name="phone"><br>
         <button type="submit">Submit</button>
     </form>
+</body>
+</html> -->
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ✅ Notification Banner Placeholder -->
+    <div id="notification" class="hidden"></div>
+
+    <!-- ✅ Registration Form -->
+    <form id="registrationForm" action="/register" method="post">
+        <h1>Register</h1>
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" required>
+
+        <label for="phone">Phone:</label>
+        <input type="tel" name="phone" id="phone" required>
+
+        <button type="submit">Register</button>
+    </form>
+
+    <!-- ✅ Success/Error Script -->
+    <script>
+        // Dummy example to simulate success message (replace with actual logic if needed)
+        const urlParams = new URLSearchParams(window.location.search);
+        const status = urlParams.get('status');
+
+        const notification = document.getElementById('notification');
+
+        if (status === 'success') {
+            notification.textContent = 'Registration Successful!';
+            notification.className = 'notification success';
+        } else if (status === 'error') {
+            notification.textContent = 'Something went wrong. Please try again.';
+            notification.className = 'notification error';
+        }
+    </script>
+
 </body>
 </html>

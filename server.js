@@ -19,18 +19,40 @@ const dbConfig = {
     }
 };
 
+// app.post('/register', async (req, res) => {
+//     const { name, email, phone } = req.body;
+
+//     try {
+//         await sql.connect(dbConfig);
+//         await sql.query`INSERT INTO Users (Name, Email, Phone) VALUES (${name}, ${email}, ${phone})`;
+//         res.send('Registration Successful!');
+//     } catch (err) {
+//         console.error(err);
+//         res.status(500).send('Error saving data');
+//     }
+// });
+
+
+
+
 app.post('/register', async (req, res) => {
     const { name, email, phone } = req.body;
 
     try {
         await sql.connect(dbConfig);
         await sql.query`INSERT INTO Users (Name, Email, Phone) VALUES (${name}, ${email}, ${phone})`;
-        res.send('Registration Successful!');
+        
+        // ✅ Success - Redirect back with status=success
+        res.redirect('/?status=success');
+        
     } catch (err) {
         console.error(err);
-        res.status(500).send('Error saving data');
+        
+        // ❌ Error - Redirect back with status=error
+        res.redirect('/?status=error');
     }
 });
+
 
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/public/index.html');

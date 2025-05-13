@@ -57,7 +57,7 @@ button {
     margin-top: 20px;
     width: 100%;
     padding: 12px;
-    background: linear-gradient(to right, #6a11cb, #2575fc);
+    background: linear-gradient(to right, #6a11cb, #3479f0);
     color: white;
     border: none;
     border-radius: 6px;
@@ -68,4 +68,34 @@ button {
 
 button:hover {
     background: linear-gradient(to right, #2575fc, #6a11cb);
+}
+
+/* ✅ Notification Banner Styling */
+.notification {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 30px;
+    border-radius: 6px;
+    font-weight: 500;
+    color: #fff;
+    font-size: 14px;
+    z-index: 9999;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Success message (green) */
+.success {
+    background-color: #28a745;
+}
+
+/* Error message (red) */
+.error {
+    background-color: #dc3545;
+}
+
+/* Hidden by default */
+.hidden {
+    display: none;
 }
