@@ -5,6 +5,8 @@ require('dotenv').config();
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static('public'));
+
 
 const dbConfig = {
     user: process.env.DB_USER,
